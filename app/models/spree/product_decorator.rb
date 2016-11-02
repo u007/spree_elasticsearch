@@ -134,7 +134,8 @@ module Spree
 
         # add price filter outside the query because it should have no effect on facets
         if price_min && price_max && (price_min < price_max)
-          result[:filter] = { range: { price: { gte: price_min, lte: price_max } } }
+          # result[:filter] = { range: { price: { gte: price_min, lte: price_max } } }
+          result[:filters] = { range: { price: { gte: price_min, lte: price_max } } }
         end
 
         result
